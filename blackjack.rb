@@ -42,13 +42,16 @@ class Blackjack
             dealer_hand.hit(card)
           end
         end
-
+        # Game Results
         if player_hand.score > dealer_hand.score
           game_results(player_hand, dealer_hand)
           puts "You win!"
         elsif player_hand.score < dealer_hand.score && !dealer_hand.busted?
           game_results(player_hand, dealer_hand)
           puts "You lose!"
+        elsif player_hand.score == dealer_hand.score
+          game_results(player_hand,dealer_hand)
+          puts "Tie..."
         else
           game_results(player_hand, dealer_hand)
           puts "You win!"
@@ -87,8 +90,8 @@ class Blackjack
 
   def game_results(player_hand, dealer_hand)
     puts "Dealer Hand: #{dealer_hand}"
+    puts "Player Hand: #{player_hand}"
     puts "Player Score: #{player_hand.score} | Dealer Score:#{dealer_hand.score}"
-
   end
 
 end
